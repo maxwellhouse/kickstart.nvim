@@ -1,4 +1,6 @@
 return {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
     config = function ()
@@ -10,11 +12,14 @@ return {
 
         require('mason').setup({})
         require('mason-lspconfig').setup({
-        ensure_installed = {'clangd'},
+        ensure_installed = {'clangd', 'bashls', 'cmake', 'jsonls', 'kotlin_language_server', 'lua_ls', 'ols', 'pylsp', 'rust_analyzer'},
         handlers = {
             lsp_zero.default_setup,
         },
         })
-    end
-
+    end,
+    {'neovim/nvim-lspconfig'},
+    {'hrsh7th/cmp-nvim-lsp'},
+    {'hrsh7th/nvim-cmp'},
+    {'L3MON4D3/LuaSnip'}
 }
