@@ -188,6 +188,13 @@ vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+-- Tabs the correct way :)
+vim.o.autoindent = true
+vim.o.smarttab = true
+vim.o.smartindent = true
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
@@ -429,7 +436,8 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
+  clangd = {},
+  ols = {},
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
