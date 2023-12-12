@@ -439,7 +439,7 @@ local servers = {
   clangd = {},
   ols = {},
   -- gopls = {},
-  -- pyright = {},
+  pylsp = {},
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -478,7 +478,19 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
-
+require('lspconfig').pylsp.setup({
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = { 'W391', 'E501' },
+          maxLineLength = 120
+          }
+        }
+      }
+    }
+   }
+)
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
